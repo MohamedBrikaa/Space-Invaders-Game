@@ -7,16 +7,35 @@ var heroImageSrc = "img/ship.png";
 var hero;
 var spacePressed=false;
 var heroBullets = [];
-const bulletWidth=8;
-const bulletHeight=40;
+var enemyBullets = [];
+var enemyArray = [];
+var steps;
 
+var progress={
+    lvl:1,
+    stage:1
+}
+var enemyImgSrcArray=["",""]
+var enemies={
+    imgSrc:enemyImgSrcArray[progress.lvl],
+    enemyMoveStep:3,
+    enemyWidth:40,
+    enemyHeight:30,
+    enemylivesNum:0,
+    enemyNum:1,
+    numberOfLines:1,
+    verEnemiesMargin:10,
+    horEnemiesMargin:20
+}
 
 /***************** Constants *****************/
 const game_Width = 1024;
 const game_height = 400;
 const canvas_Width = 1024;
 const canvas_height = 600;
-
+const bulletWidth=8;
+const bulletHeight=40;
+const bulletStep=5;
 /*************** create canvas *************/
 
 var canvas = document.getElementById("myCanvas");
@@ -42,6 +61,7 @@ function gameLoop(timeStamp) {
     hero.clear();
     hero.draw(context);
     moveHeroBullets();
+    moveEnemyBullets();
     // Request to do this again
     requestAnimationFrame(gameLoop);
     
