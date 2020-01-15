@@ -39,7 +39,12 @@ class player {
     moveRight() { this.speed = this.maxspeed; }
     //  stop hero
     stop() { this.speed = 0; }
-
+    //fire 
+    fire(){
+        console.log("n");
+        heroBullets.push(new Bullet("img/laser.png",this.position.x+(this.width/2)-5, this.position.y-35 ))
+        console.log(heroBullets);
+    }
 }
 
 // user input handler 
@@ -52,6 +57,12 @@ class inputHandler {
                     break;
                 case 39:
                     hero.moveRight();
+                    break;
+                case 32:                 
+                    if (spacePressed) {
+                        hero.fire();
+                        spacePressed=false;
+                    }
                     break;
             }
         })
@@ -68,8 +79,40 @@ class inputHandler {
                         hero.stop();
                     }
                     break;
+                case 32:   
+                    spacePressed = true;
+                    break;
             }
         })
 
+    }
+}
+
+//class bullet
+class Bullet {
+    constructor( imgSrc,x, y){
+        this.image = new Image();
+        this.image.src = imgSrc;
+        this.x=x;
+        this.y=y;
+        this.speed = {x:0, y:2};
+        this.width = bulletWidth;
+        this.height = bulletHeight;
+    }
+    draw(){
+        context.drawImage(this.image, this.x, this.y, this.width, this.height );
+    }
+    update(){
+        this.position.x += this.speed.x;
+        this.position.y += this.speed.y;
+    }
+    moveUp(speed){
+        this.y -= speed;
+    }
+    moveDown(speed){
+        this.y += speed;
+    }
+    clear(){
+        context.clearRect(this.x, this.y,this.width,this.height)
     }
 }

@@ -5,6 +5,10 @@ var player_MaxSpeed = 10;
 var lastTime = 0;
 var heroImageSrc = "img/ship.png";
 var hero;
+var spacePressed=false;
+var heroBullets = [];
+const bulletWidth=8;
+const bulletHeight=40;
 
 
 /***************** Constants *****************/
@@ -18,9 +22,9 @@ const canvas_height = 600;
 var canvas = document.getElementById("myCanvas");
 canvas.width = canvas_Width;
 canvas.height = canvas_height;
-var context = canvas.getContext("2d");// call all of the rendering APIs
+var context = canvas.getContext("2d"); // call all of the rendering APIs
 
-/***************** man functions ************/
+/***************** main functions ************/
 
 //init the game
 function init() {
@@ -37,8 +41,10 @@ function gameLoop(timeStamp) {
     hero.update(deltaT);
     hero.clear();
     hero.draw(context);
+    moveHeroBullets();
     // Request to do this again
     requestAnimationFrame(gameLoop);
+    
 }
 
 /**************** calling functions  ***********/
