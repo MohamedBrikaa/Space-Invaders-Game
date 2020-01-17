@@ -6,9 +6,9 @@ const canvas_height = 600;
 const bulletWidth=8;
 const bulletHeight=40;
 const bulletStep=5;
+const playerWidth = 150;
+const playerHeight = 150;
 /***************** Variables *****************/
-var playerWidth = 150;
-var playerHeight = 150;
 var player_MaxSpeed = 10;
 var lastTime = 0;
 var heroImageSrc = localStorage.getItem("src"); //get src for choosen hero
@@ -17,6 +17,7 @@ var spacePressed=false;
 var heroBullets = [];
 var enemyBullets = [];
 
+var gameOver = false;
 var count = 0;
 var fireSpeed = 0;
 var score;
