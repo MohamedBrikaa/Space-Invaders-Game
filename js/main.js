@@ -87,26 +87,27 @@ function init() {
 // game loop
 function gameLoop(timeStamp) {
     //get how many milliseconds have passed since the last interval
-    var deltaT = timeStamp - lastTime;
-    moveEnemies();
-    if (fireSpeed == 20) {
-        enemyFire();
-        fireSpeed = 0;
+    if(gameON){
+        var deltaT = timeStamp - lastTime;
+        moveEnemies();
+        if (fireSpeed == 20) {
+            enemyFire();
+            fireSpeed = 0;
+        }
+        else {
+            fireSpeed++;
+        }
+        moveEnemyBullets();
+        moveHeroBullets();
+        hero.update(deltaT);
+        hero.clear();
+        hero.draw();
+        if (!enemyArray.length) {
+            nextStage();
+        }
+        // Request to do this again
+        requestAnimationFrame(gameLoop);
     }
-    else {
-        fireSpeed++;
-    }
-    moveEnemyBullets();
-    moveHeroBullets();
-    hero.update(deltaT);
-    hero.clear();
-    hero.draw();
-    if (!enemyArray.length) {
-        nextStage();
-    }
-    // Request to do this again
-    requestAnimationFrame(gameLoop);
-    
 }
 
 /**************** calling functions  ***********/
@@ -116,21 +117,24 @@ gameLoop();
 
 //pause/resume button
 var $pauseBtn = document.querySelector("#pauseBtn");
-$pauseBtn.addEventListener('click', function(){
-    if ( $pauseBtn.innerHTML === "Pause" ){
-        $pauseBtn.innerHTML = "Resume";
-        gameON = false;
-    }
-    else{
-        $pauseBtn.innerHTML = "Pause";
-        gameON = true;
-        gameLoop();
-    }
+['click','mouseon'].forEach( function(evt) {
+    $pauseBtn.addEventListener(evt, function(){
+        if ( $pauseBtn.innerHTML === "Pause" ){
+            $pauseBtn.innerHTML = "Resume";
+            gameON = false;
+            gameLoop();
+        } else{
+            $pauseBtn.innerHTML = "Pause";
+            gameON = true;
+            gameLoop();
+        }
+    });
 });
 
 //exit button
 var $exitBtn = document.querySelector("#exitBtn");
 $exitBtn.addEventListener("click", function(){ 
+    console.log("exit");
     window.close();
 });
 
