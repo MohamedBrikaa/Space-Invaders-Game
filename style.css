@@ -1,0 +1,39 @@
+body{
+    text-align: center;
+    background-color: black;
+}
+
+.game-over {
+    display: none;
+    position: absolute;
+    background: #6b1818;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 10px;
+    text-align: center;
+    width: 93%;
+    margin: auto;
+    top: 45%;
+}
+canvas{
+    border: 1px solid red;
+    background-image: url(img/background.gif);
+
+    animation: scroll-background linear 5s infinite;
+}   
+
+@keyframes scroll-background 
+{
+    from {
+        background-position-y: 0%;
+    }
+    to {
+        background-position-y: +100%;
+    }
+}
+
+img{
+    width: 40px;
+    height: 30px;
+    position: relative;
+}
