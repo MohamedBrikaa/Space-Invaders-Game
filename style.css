@@ -37,3 +37,49 @@ img{
     height: 30px;
     position: relative;
 }
+
+.game-btn{
+    background-color: lightgray;
+    color: gray;
+    font-size: 15pt;
+	font-family: 'Press Start 2p';
+	font-weight: bold;
+	text-align: center;
+    text-shadow: -1px -1px black, 1px 1px white;
+
+    width : 8%;
+    height : 5%;
+    border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+    
+    position: absolute;
+    display: block;
+    right: 2%;
+	/* margin:5px;
+    padding: 10px 0 10px 10px ; */
+
+}
+
+#pauseBtn{
+    top:30%
+}
+
+#rsetatBtn{
+    top:40%;
+}
+#homeBtn{
+    top:50;
+}
+
+#exitBtn{
+    top:60;
+}
+
+
+ .game-btn:active {
+    box-shadow: none;
+    position: absolute;
+    top: .2em;
+    display: block; 
+} 

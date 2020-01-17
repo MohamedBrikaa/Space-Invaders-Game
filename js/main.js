@@ -10,6 +10,7 @@ var heroBullets = [];
 var enemyBullets = [];
 var enemyArray = [];
 var steps;
+var gameON= true;
 
 var progress={
     lvl:1,
@@ -70,3 +71,33 @@ function gameLoop(timeStamp) {
 /**************** calling functions  ***********/
 init();
 gameLoop();
+
+
+
+/**************** Menu Buttons  ***********/
+
+//pause/resume button
+var $pauseBtn = document.querySelector("#pauseBtn");
+$pauseBtn.addEventListener('click', function(){
+    if ( $pauseBtn.innerHTML === "Pause" ){
+        $pauseBtn.innerHTML = "Resume";
+        gameON = false;
+    }
+    else{
+        $pauseBtn.innerHTML = "Pause";
+        gameON = true;
+        gameLoop();
+    }
+});
+
+//exit button
+var $exitBtn = document.querySelector("#exitBtn");
+$exitBtn.addEventListener("click", function(){ 
+    window.close();
+});
+
+//go to button
+var $homeBtn = document.querySelector("#homeBtn");
+$homeBtn.addEventListener("click", function(){ 
+    window.location.href = "index.html";
+});
