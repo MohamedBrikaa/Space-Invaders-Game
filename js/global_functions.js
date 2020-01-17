@@ -129,3 +129,24 @@ function collisoinDetection() {
         }
     }
 }
+//function to specify game levels
+function nextStage() {
+    //stage finished
+    console.log(progress.stage);
+    progress.stage++;
+    if (progress.stage > 2) {
+        progress.lvl++;
+        progress.stage = 1;
+    }
+    enemyBullets.splice(0, enemyBullets.length)
+    heroBullets.splice(0, heroBullets.length)
+    context.clearRect(0, 0, canvas_Width, canvas_height)
+    document.getElementsByClassName("progress")[0].innerHTML = `<h1>Level: ${progress.lvl}</h1><h1>Stage: ${progress.stage}</h1>`
+    document.getElementsByClassName("progress")[0].style.background = "#4caf5063";
+    document.getElementsByClassName("progress")[0].style.display = "block";
+    var lvlTimeOut = setTimeout(function () {
+        document.getElementsByClassName("progress")[0].style.display = "none";
+        clearInterval(lvlTimeOut);
+    }, 1000)
+    init()
+}
