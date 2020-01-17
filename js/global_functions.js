@@ -165,3 +165,16 @@ function killHero(bulletIndex) {
     }
     lives--;
 }
+//function to fire after player press
+function enemyFire() {
+    if (enemyArray.length) {
+        var indexOfFiredEnemy = Math.floor((Math.random() * enemyArray.length) + 0);
+        var x = enemyArray[indexOfFiredEnemy].x
+        var width = enemyArray[indexOfFiredEnemy].width
+        var y = enemyArray[indexOfFiredEnemy].y
+        var height = enemyArray[indexOfFiredEnemy].height
+
+        enemyBullets.push(new Bullet("img/egg.png", x + (width / 2), y + height));
+    }
+}
+
