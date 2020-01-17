@@ -3,7 +3,7 @@ var playerWidth = 150;
 var playerHeight = 150;
 var player_MaxSpeed = 10;
 var lastTime = 0;
-var heroImageSrc = "img/ship.png";
+var heroImageSrc = localStorage.getItem("src"); //get src for choosen hero
 var hero;
 var spacePressed=false;
 var heroBullets = [];
@@ -43,6 +43,8 @@ var canvas = document.getElementById("myCanvas");
 canvas.width = canvas_Width;
 canvas.height = canvas_height;
 var context = canvas.getContext("2d"); // call all of the rendering APIs
+
+resize(); //resize call function
 
 /***************** main functions ************/
 
