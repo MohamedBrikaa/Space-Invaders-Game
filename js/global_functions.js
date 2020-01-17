@@ -159,9 +159,9 @@ function killHero(bulletIndex) {
     enemyBullets.splice(bulletIndex, 1);
     if (lives === 0) {
         canvas.remove();
-        document.getElementsByClassName("game-over")[0].innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
-        document.getElementsByClassName("game-over")[0].style.background = "#ce222287";
-        document.getElementsByClassName("game-over")[0].style.display = "block";
+        document.getElementsByClassName("progress")[0].innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
+        document.getElementsByClassName("progress")[0].style.background = "#ce222287";
+        document.getElementsByClassName("progress")[0].style.display = "block";
     }
     lives--;
 }

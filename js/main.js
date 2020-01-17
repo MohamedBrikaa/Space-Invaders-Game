@@ -22,7 +22,7 @@ var count = 0;
 var fireSpeed = 0;
 var score;
 var totalScore = 0;
-var lives = 50;
+var lives = 5;
 var enemyArray = [];
 var steps;
 var gameON= true;
