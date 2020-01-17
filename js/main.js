@@ -8,9 +8,14 @@ var hero;
 var spacePressed=false;
 var heroBullets = [];
 var enemyBullets = [];
+
+
 var enemyArray = [];
 var steps;
 var gameON= true;
+var enemyImageSrc = "img/enemy.png";
+var steps=Math.floor( (canvas_Width-((enemyNum/4)*enemyWidth + 9*horEnemiesMargin)) /enemyMoveStep);
+
 
 var progress={
     lvl:1,
@@ -37,6 +42,12 @@ const canvas_height = 600;
 const bulletWidth=8;
 const bulletHeight=40;
 const bulletStep=5;
+const enemyWidth=40;
+const enemyHeight=30;
+const enemylivesNum=1
+const enemyNum=40
+const verEnemiesMargin=10;
+const horEnemiesMargin=20;
 /*************** create canvas *************/
 
 var canvas = document.getElementById("myCanvas");
@@ -53,6 +64,7 @@ function init() {
     hero = new player(heroImageSrc, game_Width, game_height);
     hero.draw();
     new inputHandler(hero);
+    creatEnemyArray(enemyArray,enemyImageSrc);
 }
 
 // game loop
@@ -63,6 +75,7 @@ function gameLoop(timeStamp) {
     hero.update(deltaT);
     hero.clear();
     hero.draw(context);
+    moveEnemies();
     moveHeroBullets();
     moveEnemyBullets();
     // Request to do this again

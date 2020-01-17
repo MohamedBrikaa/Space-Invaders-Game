@@ -116,3 +116,27 @@ class Bullet {
         context.clearRect(this.x, this.y,this.width,this.height)
     }
 }
+//Enemy class
+class enemy {
+    constructor(imgSrc, x, y, width, height,lives) {
+        this.img = new Image();
+        this.img.src = imgSrc;
+        this.x = x
+        this.y = y
+        this.lives=lives
+        this.width = width
+        this.height = height
+    }
+    draw() {
+        context.drawImage(this.img, this.x, this.y, this.width, this.height);
+    }
+    moveRight(speed){
+        this.x += speed;
+    }
+    moveLeft(speed){
+        this.x -=speed;
+    }
+    clear(){
+        context.clearRect(this.x, this.y,this.width,this.height)
+    }
+}
