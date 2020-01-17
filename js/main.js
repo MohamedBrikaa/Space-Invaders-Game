@@ -3,8 +3,8 @@ const game_Width = 1024;
 const game_height = 400;
 const canvas_Width = 1024;
 const canvas_height = 600;
-const bulletWidth=8;
-const bulletHeight=40;
+const bulletWidth=15;
+const bulletHeight=20;
 const bulletStep=5;
 const playerWidth = 150;
 const playerHeight = 150;
@@ -40,7 +40,7 @@ var enemies={
     enemyWidth:40,
     enemyHeight:30,
     enemylivesNum:0,
-    enemyNum:1,
+    enemyNum:10,
     numberOfLines:1,
     verEnemiesMargin:10,
     horEnemiesMargin:20
@@ -87,26 +87,27 @@ function init() {
 // game loop
 function gameLoop(timeStamp) {
     //get how many milliseconds have passed since the last interval
-    var deltaT = timeStamp - lastTime;
-    moveEnemies();
-    if (fireSpeed == 20) {
-        enemyFire();
-        fireSpeed = 0;
+    if(gameON){
+        var deltaT = timeStamp - lastTime;
+        moveEnemies();
+        if (fireSpeed == 20) {
+            enemyFire();
+            fireSpeed = 0;
+        }
+        else {
+            fireSpeed++;
+        }
+        moveEnemyBullets();
+        moveHeroBullets();
+        hero.update(deltaT);
+        hero.clear();
+        hero.draw();
+        if (!enemyArray.length) {
+            nextStage();
+        }
+        // Request to do this again
+        requestAnimationFrame(gameLoop);
     }
-    else {
-        fireSpeed++;
-    }
-    moveEnemyBullets();
-    moveHeroBullets();
-    hero.update(deltaT);
-    hero.clear();
-    hero.draw();
-    if (!enemyArray.length) {
-        nextStage();
-    }
-    // Request to do this again
-    requestAnimationFrame(gameLoop);
-    
 }
 
 /**************** calling functions  ***********/
@@ -116,21 +117,24 @@ gameLoop();
 
 //pause/resume button
 var $pauseBtn = document.querySelector("#pauseBtn");
-$pauseBtn.addEventListener('click', function(){
-    if ( $pauseBtn.innerHTML === "Pause" ){
-        $pauseBtn.innerHTML = "Resume";
-        gameON = false;
-    }
-    else{
-        $pauseBtn.innerHTML = "Pause";
-        gameON = true;
-        gameLoop();
-    }
+['click','mouseon'].forEach( function(evt) {
+    $pauseBtn.addEventListener(evt, function(){
+        if ( $pauseBtn.innerHTML === "Pause" ){
+            $pauseBtn.innerHTML = "Resume";
+            gameON = false;
+            gameLoop();
+        } else{
+            $pauseBtn.innerHTML = "Pause";
+            gameON = true;
+            gameLoop();
+        }
+    });
 });
 
 //exit button
 var $exitBtn = document.querySelector("#exitBtn");
 $exitBtn.addEventListener("click", function(){ 
+    console.log("exit");
     window.close();
 });
 

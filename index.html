@@ -2,24 +2,19 @@
 <html>
 
 <head>
-    <title>Play Page</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 
-<body>
-    <canvas id="myCanvas"></canvas>
-
-    <div class="menu-btns">
-        <button class="game-btn" id="pauseBtn">Pause</button>
-        <button class="game-btn" id="rsetatBtn" onclick="window.location.reload()">Restart</button>
-        <button class="game-btn" id="homeBtn">Home</button>
-        <button class="game-btn" id="exitBtn">Exit</button>
+<body class="body">
+    <div id="div1">
+        <img src="img/Ci2logo.png" width="400" height="200">
+        <button id="play" class="button button1" onclick=" window.location.href='chooseCharacter.html'">PLAY</button>
+        <!-- <button id="instructions" class="button button2">INSTRUCTIONS</button> -->
+        <button id="help" class="button button3" onclick=" window.location.href='help.html'">HELP</button>
+        <button id="about" class="button button4" onclick=" window.location.href='about.html'">ABOUT</button>
     </div>
-    
-    <script src="js/classes.js"></script>
-    <script src="js/global_functions.js"></script>
-    <script src="js/main.js"></script>
-
 </body>
-
 </html>

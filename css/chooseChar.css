@@ -1,0 +1,33 @@
+#div1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 150;
+    height: 150;
+    margin: auto;
+    margin-left: 55%;  
+}
+
+#div2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 150;
+    height: 150;
+    margin: auto;
+    margin-left: 20%;
+}
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{
+    overflow-inline: initial;
+}
+img:hover{
+    cursor: pointer;
+}
