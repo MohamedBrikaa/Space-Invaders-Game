@@ -1,3 +1,18 @@
+/***************** Constants *****************/
+const game_Width = 1024;
+const game_height = 400;
+const canvas_Width = 1024;
+const canvas_height = 600;
+const bulletWidth=8;
+const bulletHeight=40;
+const bulletStep=5;
+const enemyWidth=40;
+const enemyHeight=30;
+const enemylivesNum=1
+const enemyNum=40
+const verEnemiesMargin=10;
+const horEnemiesMargin=20;
+
 /***************** Variables *****************/
 var playerWidth = 150;
 var playerHeight = 150;
@@ -34,20 +49,7 @@ var enemies={
     horEnemiesMargin:20
 }
 
-/***************** Constants *****************/
-const game_Width = 1024;
-const game_height = 400;
-const canvas_Width = 1024;
-const canvas_height = 600;
-const bulletWidth=8;
-const bulletHeight=40;
-const bulletStep=5;
-const enemyWidth=40;
-const enemyHeight=30;
-const enemylivesNum=1
-const enemyNum=40
-const verEnemiesMargin=10;
-const horEnemiesMargin=20;
+
 /*************** create canvas *************/
 
 var canvas = document.getElementById("myCanvas");
