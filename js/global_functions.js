@@ -154,16 +154,23 @@ function nextStage() {
 //function destory hero when it is hit by any of invaders missiles 
 //when a hit is detected, the hero image blinks and number of lives decreased by 1
 function killHero(bulletIndex) {
-    enemyBullets[bulletIndex].clear();
-    hero.clear();
-    enemyBullets.splice(bulletIndex, 1);
+    var progressDiv=document.getElementsByClassName("progress")[0];
+    if(lives) lives--;
+    enemyBullets.splice(0,enemyBullets.length)
+    heroBullets.splice(0,heroBullets.length)
+    context.clearRect(0,0,canvas_Width,canvas_height)
+    progressDiv.style.background = "#ce222287";
+    progressDiv.style.display = "block";
     if (lives === 0) {
         canvas.remove();
-        document.getElementsByClassName("progress")[0].innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
-        document.getElementsByClassName("progress")[0].style.background = "#ce222287";
-        document.getElementsByClassName("progress")[0].style.display = "block";
+        progressDiv.innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
+    }else{ 
+        progressDiv.innerHTML = `<h1>you have been killed</h1><h1>Lives: ${lives}</h1>`
+    var killedTimeOut = setTimeout(function () {
+        progressDiv.style.display = "none";
+            clearInterval(killedTimeOut);
+        }, 500)
     }
-    lives--;
 }
 //function to fire after player press
 function enemyFire() {
