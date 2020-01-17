@@ -150,3 +150,18 @@ function nextStage() {
     }, 1000)
     init()
 }
+
+//function destory hero when it is hit by any of invaders missiles 
+//when a hit is detected, the hero image blinks and number of lives decreased by 1
+function killHero(bulletIndex) {
+    enemyBullets[bulletIndex].clear();
+    hero.clear();
+    enemyBullets.splice(bulletIndex, 1);
+    if (lives === 0) {
+        canvas.remove();
+        document.getElementsByClassName("game-over")[0].innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
+        document.getElementsByClassName("game-over")[0].style.background = "#ce222287";
+        document.getElementsByClassName("game-over")[0].style.display = "block";
+    }
+    lives--;
+}
