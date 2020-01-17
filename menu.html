@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+   
+</head>
+
+<body class="body">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+
+        .button {
+            background-color: rgba(223, 30, 30, 0.644);
+            /* Green */
+            border: white;
+            color: white;
+            width: 300px;
+            padding: 20px;
+            font-family: shadows into light;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            /*margin: 4px 2px;*/
+            margin-bottom: 4px;
+            border-radius: 35%;
+            cursor: pointer;
+            margin: auto;
+            border-radius: 25px;
+            border: 2px solid white;
+
+        }
+
+        #play:hover {
+            background: #db0505;
+            color: rgb(101, 143, 191);
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-2deg);
+
+
+        }
+
+        #instructions:hover {
+            background: #db0505;
+            color: rgb(101, 143, 191);
+
+            -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+
+
+        }
+
+        #help:hover {
+            background: #db0505;
+            color: rgb(101, 143, 191);
+
+
+            -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+
+
+        }
+
+        #about:hover {
+            background: #db0505;
+            color: rgb(101, 143, 191);
+
+
+            -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+
+
+        }
+
+        .body {
+
+            text-align: center;
+            background-color: white;
+            background-image: url('background.jpg');
+            background-repeat: repeat;
+            animation: scroll-background linear 5s infinite;
+        }
+
+        @keyframes scroll-background {
+            from {
+                background-position-y: 0%;
+            }
+
+            to {
+                background-position-y: +100%;
+            }
+        }
+
+
+        .div1 {
+            width: 500px;
+            height: 500px;
+            /*background-color: olivedrab;*/
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+        }
+
+        .button1 {
+            margin-bottom: 10px;
+        }
+
+        .button2 {
+            margin-bottom: 10px;
+        }
+
+        .button3 {
+            margin-bottom: 10px;
+        }
+
+        .button4 {
+            margin-bottom: 10px;
+        }
+
+        .button5 {
+            margin-bottom: 4px;
+        }
+
+        /* img{
+            opacity: 30%;
+        }*/
+    </style>
+    <!-----<div class="container-name">
+    </div>--->
+
+    <div id="div1">
+
+        <img src="img/Ci2logo.png" width="400" height="200">
+        <!--<h2>Rounded Buttons</h2>
+        <p>Add rounded corners to a button with the border-radius property:</p>-->
+
+        <button id="play" class="button button1">PLAY</button>
+        <button id="instructions" class="button button2">INSTRUCTIONS</button>
+        <button id="help" class="button button3">HELP</button>
+        <button id="about" class="button button4">ABOUT</button>
+
+
+    </div>
+</body>
+
+</html>
