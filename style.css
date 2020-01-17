@@ -3,7 +3,7 @@ body{
     background-color: black;
 }
 
-.game-over {
+.progress {
     display: none;
     position: absolute;
     background: #6b1818;
