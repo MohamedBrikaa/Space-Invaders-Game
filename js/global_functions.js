@@ -112,7 +112,7 @@ function collisoinDetection() {
                     bulletExist = false;
 
                     if (enemyArray[j].lives == 0) {
-                        enemyArray[j].img.src = "img/200w_d.gif";
+                        enemyArray[j].img.src = "img/fried-chicken.png";
                         var enemy_timeOut = setTimeout(function () {
                             KilledEnemy = j;
                             enemyArray[KilledEnemy].clear();
