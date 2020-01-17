@@ -47,18 +47,18 @@ function moveEnemyBullets() {
 }
 
 //fuction to create enemy array
-function creatEnemyArray(enemyArray,imgSrc,enemylivesNum) {
+function creatEnemyArray() {
     steps = Math.floor((canvas_Width - ((enemies.enemyNum / enemies.numberOfLines) * enemies.enemyWidth + 9 * enemies.horEnemiesMargin)) / enemies.enemyMoveStep);
     var yPos=0;
     var xPos=0;
-    for (let index = 0; index < enemyNum; index++) {        
-        if(index%10 == 0) 
+    for (let index = 0; index < enemies.enemyNum; index++) {        
+        if(index % (enemies.enemyNum / enemies.numberOfLines) == 0 && index != 0) 
         {            
-            yPos+=enemyHeight+verEnemiesMargin;
+            yPos+=enemies.enemyHeight+enemies.verEnemiesMargin;
             xPos=0;
         }
-        enemyArray[index]= new enemy(imgSrc,xPos,yPos,enemyWidth,enemyHeight,enemylivesNum);
-        xPos+=enemyWidth+horEnemiesMargin;
+        enemyArray[index]= new enemy(enemies.imgSrc,xPos,yPos,enemies.enemyWidth,enemies.enemyHeight,enemies.enemylivesNum);
+        xPos+=enemies.enemyWidth+enemies.horEnemiesMargin;
         enemyArray[index].draw();
     } 
 }
@@ -69,7 +69,7 @@ function moveEnemies() {
         //move right
         for (let index = 0; index < enemyArray.length; index++) {            
             enemyArray[index].clear();
-            enemyArray[index].moveRight(enemyMoveStep); 
+            enemyArray[index].moveRight(enemies.enemyMoveStep); 
             enemyArray[index].draw();
         } 
         count++;
@@ -81,7 +81,7 @@ function moveEnemies() {
         //move left
         for (let index = 0; index < enemyArray.length; index++) {
             enemyArray[index].clear();
-            enemyArray[index].moveLeft(enemyMoveStep); 
+            enemyArray[index].moveLeft(enemies.enemyMoveStep); 
             enemyArray[index].draw();
         }  
         count--; 
