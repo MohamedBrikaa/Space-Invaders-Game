@@ -3,6 +3,7 @@
 
 <head>
     <title>Play Page</title>
+    <iframe height="0" width="0" src="sounds/Angry Squirrel.wav" framborder="0" allowfullscreen></iframe>
     <link rel="stylesheet" href="css/game.css">
 </head>
 
@@ -15,6 +16,28 @@
         <button class="game-btn" id="homeBtn" style="top: 50%;">Home</button>
         <button class="game-btn" id="exitBtn" style="top: 60%">Exit</button>
     </div>
+    <audio id="myAudio">
+        <source id="bullet_sound" src="sounds/Pew_Pew.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="mainsound">
+        <source src="sounds/main bg.mp3" type="audio/mp3">
+    </audio>
+    <audio id="chicken">
+        <source src="sounds/Angry Squirrel.wav" type="audio/wav">
+    </audio>
+    <audio id="gameOver">
+        <source src="sounds/hahaha-Peter.mp3" type="audio/mp3">
+    </audio>
+    <audio id="herodied">
+        <source src="sounds/Spring bong 5.wav" type="audio/wav">
+    </audio>
+    <audio id="killhim">
+        <source src="sounds/killhim_clip.mp3" type="audio/mp3">
+    </audio>
+    <audio id="byebye">
+        <source src="sounds/byebye_clip.mp3" type="audio/mp3">
+    </audio>
     
     <script src="js/classes.js"></script>
     <script src="js/global_functions.js"></script>

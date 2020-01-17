@@ -10,21 +10,43 @@ function resize() {
     canvas.style.width = width + 'px';
     canvas.style.height = height - 25 + 'px';
 }
+/*******************voice functions*********/
+function byeBye() {
+    byebye.play();
+}
+function killSound() {
+    killHim.play();
+}
+function heroFail() {
+    hero_died.play();
+}
+function GameOverSound() {
+    game_overSound.play();
+}
+function bulletSound() {
+    heroBulletSound.play();
+}
+function main_sound() {
+    mainSound.play();
+}
+function checken_sound() {
+    checkenKak.play();
+}
 
 //function to move hero bullets
 function moveHeroBullets() {
-    if(! heroBullets.length) return;
-        for (let index = 0; index < heroBullets.length; index++) {
+    if (!heroBullets.length) return;
+    for (let index = 0; index < heroBullets.length; index++) {
+        heroBullets[index].clear();
+        heroBullets[index].moveUp(5);
+        heroBullets[index].draw();
+        if (heroBullets[index].y < 0) {
             heroBullets[index].clear();
-            heroBullets[index].moveUp(5);             
-            heroBullets[index].draw(); 
-            if( heroBullets[index].y<0) {
-                heroBullets[index].clear();
-                heroBullets.splice(index,1);
-            }
-        }  
-        //function to detect collision with enemy
-        collisoinDetection();
+            heroBullets.splice(index, 1);
+        }
+    }
+    //function to detect collision with enemy
+    collisoinDetection();
 }
 
 //function to move enemy bullets
@@ -49,48 +71,45 @@ function moveEnemyBullets() {
 //fuction to create enemy array
 function creatEnemyArray() {
     steps = Math.floor((canvas_Width - ((enemies.enemyNum / enemies.numberOfLines) * enemies.enemyWidth + 9 * enemies.horEnemiesMargin)) / enemies.enemyMoveStep);
-    var yPos=0;
-    var xPos=0;
-    for (let index = 0; index < enemies.enemyNum; index++) {        
-        if(index % (enemies.enemyNum / enemies.numberOfLines) == 0 && index != 0) 
-        {            
-            yPos+=enemies.enemyHeight+enemies.verEnemiesMargin;
-            xPos=0;
+    var yPos = 0;
+    var xPos = 0;
+    for (let index = 0; index < enemies.enemyNum; index++) {
+        if (index % (enemies.enemyNum / enemies.numberOfLines) == 0 && index != 0) {
+            yPos += enemies.enemyHeight + enemies.verEnemiesMargin;
+            xPos = 0;
         }
-        enemyArray[index]= new enemy(enemies.imgSrc,xPos,yPos,enemies.enemyWidth,enemies.enemyHeight,enemies.enemylivesNum);
-        xPos+=enemies.enemyWidth+enemies.horEnemiesMargin;
+        enemyArray[index] = new enemy(enemies.imgSrc, xPos, yPos, enemies.enemyWidth, enemies.enemyHeight, enemies.enemylivesNum);
+        xPos += enemies.enemyWidth + enemies.horEnemiesMargin;
         enemyArray[index].draw();
-    } 
+    }
 }
 
 //functions to move enemies
 function moveEnemies() {
-    if(right){
+    if (right) {
         //move right
-        for (let index = 0; index < enemyArray.length; index++) {            
+        for (let index = 0; index < enemyArray.length; index++) {
             enemyArray[index].clear();
-            enemyArray[index].moveRight(enemies.enemyMoveStep); 
+            enemyArray[index].moveRight(enemies.enemyMoveStep);
             enemyArray[index].draw();
-        } 
-        count++;
-        if(count==steps) 
-        {
-            right=false; 
         }
-    }else{        
+        count++;
+        if (count == steps) {
+            right = false;
+        }
+    } else {
         //move left
         for (let index = 0; index < enemyArray.length; index++) {
             enemyArray[index].clear();
-            enemyArray[index].moveLeft(enemies.enemyMoveStep); 
+            enemyArray[index].moveLeft(enemies.enemyMoveStep);
             enemyArray[index].draw();
-        }  
-        count--; 
-         if(count==0) 
-         {
-            right=true;
-         }
+        }
+        count--;
+        if (count == 0) {
+            right = true;
+        }
     }
-    
+
 }
 
 //function to detect when a hero bullet kill an enemy
@@ -118,7 +137,7 @@ function collisoinDetection() {
                             enemyArray[KilledEnemy].clear();
                             enemyArray.splice(KilledEnemy, 1);
                             clearInterval(enemy_timeOut);
-                        },30)
+                        }, 30)
                         totalScore++;
                         score++;
                     } else {
@@ -137,6 +156,7 @@ function nextStage() {
     if (progress.stage > 2) {
         progress.lvl++;
         progress.stage = 1;
+        killSound();//kill him comic sound 
     }
     enemyBullets.splice(0, enemyBullets.length)
     heroBullets.splice(0, heroBullets.length)
@@ -154,22 +174,25 @@ function nextStage() {
 //function destory hero when it is hit by any of invaders missiles 
 //when a hit is detected, the hero image blinks and number of lives decreased by 1
 function killHero(bulletIndex) {
-    var progressDiv=document.getElementsByClassName("progress")[0];
-    if(lives) lives--;
-    enemyBullets.splice(0,enemyBullets.length)
-    heroBullets.splice(0,heroBullets.length)
-    context.clearRect(0,0,canvas_Width,canvas_height)
+    var progressDiv = document.getElementsByClassName("progress")[0];
+    if (lives) lives--;
+    enemyBullets.splice(0, enemyBullets.length)
+    heroBullets.splice(0, heroBullets.length)
+    context.clearRect(0, 0, canvas_Width, canvas_height)
+    heroFail()//hero killed sound
     progressDiv.style.background = "#ce222287";
     progressDiv.style.display = "block";
     if (lives === 0) {
+        byeBye();//byebye sound
         canvas.remove();
+        GameOverSound();//Game over sound
         progressDiv.innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
-    }else{ 
+    } else {
         progressDiv.innerHTML = `<h1>you have been killed</h1><h1>Lives: ${lives}</h1>`
-        hero.heroImage.src = "img/fire.png";      
-    var killedTimeOut = setTimeout(function () {
-        hero.heroImage.src = heroImageSrc;      
-        progressDiv.style.display = "none";
+        hero.heroImage.src = "img/fire.png";
+        var killedTimeOut = setTimeout(function () {
+            hero.heroImage.src = heroImageSrc;
+            progressDiv.style.display = "none";
             clearInterval(killedTimeOut);
         }, 200)
     }

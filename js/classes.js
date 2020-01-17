@@ -58,6 +58,8 @@ class inputHandler {
                     if (spacePressed) {
                         hero.fire();
                         spacePressed=false;
+                        main_sound();// background cover
+                        bulletSound();//bullet sound
                     }
                     break;
             }
