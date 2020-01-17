@@ -40,7 +40,7 @@ var enemies={
     enemyWidth:40,
     enemyHeight:30,
     enemylivesNum:0,
-    enemyNum:1,
+    enemyNum:10,
     numberOfLines:1,
     verEnemiesMargin:10,
     horEnemiesMargin:20

@@ -17,7 +17,7 @@ body{
 }
 canvas{
     border: 1px solid red;
-    background-image: url(img/background.gif);
+    background-image: url(../img/background.gif);
 
     animation: scroll-background linear 5s infinite;
 }   
