@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
-   
+
 </head>
 
 <body class="body">
@@ -128,6 +128,26 @@
         .button5 {
             margin-bottom: 4px;
         }
+
+        body {
+
+            text-align: center;
+            background-color: white;
+            background-image: url('background.jpg');
+            background-repeat: repeat;
+            animation: scroll-background linear 5s infinite;
+        }
+
+        @keyframes scroll-background {
+            from {
+                background-position-y: 0%;
+            }
+
+            to {
+                background-position-y: +100%;
+            }
+        }
+
 
         /* img{
             opacity: 30%;
