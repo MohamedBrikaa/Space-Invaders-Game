@@ -166,10 +166,12 @@ function killHero(bulletIndex) {
         progressDiv.innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
     }else{ 
         progressDiv.innerHTML = `<h1>you have been killed</h1><h1>Lives: ${lives}</h1>`
+        hero.heroImage.src = "img/fire.png";      
     var killedTimeOut = setTimeout(function () {
+        hero.heroImage.src = heroImageSrc;      
         progressDiv.style.display = "none";
             clearInterval(killedTimeOut);
-        }, 500)
+        }, 200)
     }
 }
 //function to fire after player press
