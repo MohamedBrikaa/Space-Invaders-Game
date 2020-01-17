@@ -1,5 +1,4 @@
 /*****************Used Classes*****************/
-
 //class hero 
 class player {
     constructor(heroImgSrc, game_Width, game_height) {
@@ -10,7 +9,6 @@ class player {
         this.height = playerHeight;
         this.maxspeed = player_MaxSpeed;
         this.speed = 0     //current speed
-
         this.position = {
             x: game_Width / 2 - this.width / 2,
             y: game_height - 10
@@ -41,9 +39,7 @@ class player {
     stop() { this.speed = 0; }
     //fire 
     fire(){
-        console.log("n");
         heroBullets.push(new Bullet("img/laser.png",this.position.x+(this.width/2)-5, this.position.y-35 ))
-        console.log(heroBullets);
     }
 }
 
