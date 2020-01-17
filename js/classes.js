@@ -11,7 +11,7 @@ class player {
         this.speed = 0     //current speed
         this.position = {
             x: game_Width / 2 - this.width / 2,
-            y: game_height - 10
+            y: game_height +90
         };
     }
 

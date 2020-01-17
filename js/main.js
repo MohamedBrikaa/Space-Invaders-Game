@@ -6,8 +6,8 @@ const canvas_height = 600;
 const bulletWidth=15;
 const bulletHeight=20;
 const bulletStep=5;
-const playerWidth = 150;
-const playerHeight = 150;
+const playerWidth = 75;
+const playerHeight = 75;
 /***************** Variables *****************/
 var player_MaxSpeed = 10;
 var lastTime = 0;
