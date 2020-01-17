@@ -34,3 +34,49 @@ function moveEnemyBullets() {
         }
     }
 }
+//fuction to create enemy array
+
+function creatEnemyArray(enemyArray,imgSrc,enemylivesNum) {
+    var yPos=0;
+    var xPos=0;
+    for (let index = 0; index < enemyNum; index++) {        
+        if(index%10 == 0) 
+        {            
+            yPos+=enemyHeight+verEnemiesMargin;
+            xPos=0;
+        }
+        enemyArray[index]= new enemy(imgSrc,xPos,yPos,enemyWidth,enemyHeight,enemylivesNum);
+        xPos+=enemyWidth+horEnemiesMargin;
+        enemyArray[index].draw();
+    } 
+}
+//functions to move enemies
+var right=true;
+function moveEnemies() {
+    if(right){
+        //move right 4 steps
+        for (let index = 0; index < enemyArray.length; index++) {            
+            enemyArray[index].clear();
+            enemyArray[index].moveRight(enemyMoveStep); 
+            enemyArray[index].draw();
+        } 
+        count++;
+        if(count==steps) 
+        {
+            right=false; 
+        }
+    }else{        
+        //move left 4 steps
+        for (let index = 0; index < enemyArray.length; index++) {
+            enemyArray[index].clear();
+            enemyArray[index].moveLeft(enemyMoveStep); 
+            enemyArray[index].draw();
+        }  
+        count--; 
+         if(count==0) 
+         {
+            right=true;
+         }
+    }
+    
+}
