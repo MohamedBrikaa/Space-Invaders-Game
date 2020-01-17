@@ -2,22 +2,75 @@
 
 <head>
     <title>choose hero</title>
-    <link rel="stylesheet" href="css/chooseChar.css">
-    <style type="text/css"></style>
+    <style type="text/css">
+        #div1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 150;
+            height: 150;
+            margin: auto;
+            margin-left: 55%;
+
+        }
+
+        #div2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 150;
+            height: 150;
+            margin: auto;
+            margin-left: 20%;
+
+        }
+
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        img {
+
+            overflow-inline: initial;
+        }
+
+        img:hover {
+            cursor: pointer;
+        }
+
+        .myheader {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: lemonchiffon;
+            font-size: 40;
+        }
+
+        #header {
+            position: absolute;
+            margin: auto;
+            margin-left: 40%;
+        }
+    </style>
 </head>
 
-<body background="img/giphy16.gif" >
-     <div id ="header"></div>
+<body background="img/giphy16.gif">
+    <div id="header">
+        <h1 class="myheader">choose your hero</h1>
+    </div>
     <div id="div1">
         <center>
-            <img id="hero1" src="img/ship4.png" height="350" size="350"value="hero1" onclick="image(this)">
+            <img id="hero1" src="img/ship4.png" height="350" size="350" value="hero1" onclick="image(this)">
         </center>
     </div>
     <div id="div2">
         <center>
-            <img id="hero2" src="img/ship5.png" height="350" size="350"value="hero2"  onclick="image(this)">
+            <img id="hero2" src="img/ship5.png" height="350" size="350" value="hero2" onclick="image(this)">
         </center>
-        <a id="myimage"class='image-link' href='img/Countdown_Timer.gif' style="display:none">
+        <a id="myimage" class='image-link' href='img/Countdown_Timer.gif' style="display:none">
     </div>
     <script>
         function image(img) {
