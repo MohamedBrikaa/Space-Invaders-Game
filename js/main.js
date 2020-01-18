@@ -156,32 +156,34 @@ $homeBtn.addEventListener("click", function () {
     window.location.href = "index.html";
 });
 
+
+//a function used to update Game status:
+//number of lives remaining, level no, medal and total score
 var $gameStatusMenu = document.querySelector(".gameStatusMenu");
 function updateGameStatus(){
-    $gameStatusMenu.innerHTML = `<table
+    $gameStatusMenu.innerHTML = `<table id="game status"
                                     style="color: aqua; font-size: 20px; height: 20px; width: 20px; 
                                     display: absolute; position: absolute; text-align: left; padding: 30px;">
         <tr colspan = "2"><td>Game status</td></tr>
         <tr class="spacer" style="height: 50px;"></tr>
         <tr>
             <td><img src='img/lives.png'></td>
-            <td>{lives}</td>
+            <td></td>
         </tr>
         <tr class="spacer" style="height: 50px;"></tr>
         <tr>
             <td>Score</td>
-            <td>{totalScore}</td>
+            <td id='totalScore'></td>
         <tr>
         <tr class="spacer" style="height: 50px;"></tr>
         <tr>
             <td>Level</td>
-            <td>{lvl}</td>
+            <td id ='lvl'></td>
         <tr>
         <tr class="spacer" style="height: 50px;"></tr>
-        <tr style =" padding: 10px;">
+        <tr>
             <td>Medal</td>
-            <td><img src='medalsImgSrcArray[i]'>medalsImgSrcArray</td>
+            <td id='medal'><img src=''></td>
         <tr>
     </table> `;
 }
-
