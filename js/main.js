@@ -122,9 +122,12 @@ function gameLoop(timeStamp) {
         }
 
         if (fireSpeed == level) {
-            console.log(difficulty);
+            console.log(level);
+            console.log(fireSpeed);
             enemyFire();
             fireSpeed = 0;
+            console.log(level);
+            console.log(fireSpeed);
         }
         else {
             fireSpeed++;
