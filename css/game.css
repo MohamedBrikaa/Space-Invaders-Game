@@ -3,7 +3,7 @@ body{
     background-color: black;
 }
 
-.game-over {
+.progress {
     display: none;
     position: absolute;
     background: #6b1818;
@@ -17,7 +17,7 @@ body{
 }
 canvas{
     border: 1px solid red;
-    background-image: url(img/background.gif);
+    background-image: url(../img/background.gif);
 
     animation: scroll-background linear 5s infinite;
 }   
@@ -77,7 +77,7 @@ img{
 }
 
 
- .game-btn:active {
+.game-btn:active {
     box-shadow: none;
     position: absolute;
     top: .2em;
