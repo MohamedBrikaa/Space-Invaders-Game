@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
     <link rel="stylesheet" href="css/main.css">
-
+    <style>
+    h2{
+        color: aliceblue;
+    }
+    </style>
 </head>
 
 <body class="body">
+    <div>
+       <h2 >play music</h2>
+        <audio controls>
+            <source src="sounds/Dance Monkey.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
     <div id="div1">
         <img src="img/Ci2logo.png" width="400" height="200">
         <button id="play" class="button button1" onclick=" window.location.href='chooseDifficulty.html'">PLAY</button>
         <!-- <button id="instructions" class="button button2">INSTRUCTIONS</button> -->
         <button id="help" class="button button3" onclick=" window.location.href='help.html'">HELP</button>
         <button id="about" class="button button4" onclick=" window.location.href='about.html'">ABOUT</button>
+
     </div>
+     
 </body>
+
 </html>
