@@ -162,14 +162,6 @@ var $pauseBtn = document.querySelector("#pauseBtn");
         }
     });
 });
-
-//exit button
-var $exitBtn = document.querySelector("#exitBtn");
-$exitBtn.addEventListener("click", function () {
-    console.log("exit");
-    window.close();
-});
-
 //go to button
 var $homeBtn = document.querySelector("#homeBtn");
 $homeBtn.addEventListener("click", function () {
