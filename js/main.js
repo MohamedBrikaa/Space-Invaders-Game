@@ -29,7 +29,7 @@ var steps;
 var gameON = true;
 var enemyImageSrc = "img/enemy.png";
 var right = true;
-var medalsImgSrcArray  = ["", "img/1st.png", "img/2nd.png", , "img/3rd.png"];
+var medalsImgSrcArray  = ["img/0entry.png", "img/1st.png", "img/2nd.png", "img/3rd.png"];
 
 var progress = {
     lvl: 1,
@@ -47,6 +47,12 @@ var enemies = {
     verEnemiesMargin: 10,
     horEnemiesMargin: 20
 }
+
+var $updateMedal = document.querySelector('#medal');
+var $updateScore = document.querySelector('#totalScore');
+var $updateLevel = document.querySelector('#lvl');
+var $updatelives = document.querySelector('#lives');
+
 
 /***************audio voice deintions******/
 var heroBulletSound = document.getElementById("myAudio");
@@ -92,7 +98,6 @@ function init() {
         document.getElementsByClassName("progress")[0].style.background = "#4caf5063";
         document.getElementsByClassName("progress")[0].style.display = "block";
     }
-    updateGameStatus();
 }
 
 // game loop
@@ -116,7 +121,6 @@ function gameLoop(timeStamp) {
         if (!enemyArray.length) {
             nextStage();
         }
-        updateGameStatus();
         // Request to do this again
         requestAnimationFrame(gameLoop);
     }
@@ -155,35 +159,3 @@ var $homeBtn = document.querySelector("#homeBtn");
 $homeBtn.addEventListener("click", function () {
     window.location.href = "index.html";
 });
-
-
-//a function used to update Game status:
-//number of lives remaining, level no, medal and total score
-var $gameStatusMenu = document.querySelector(".gameStatusMenu");
-function updateGameStatus(){
-    $gameStatusMenu.innerHTML = `<table id="game status"
-                                    style="color: aqua; font-size: 20px; height: 20px; width: 20px; 
-                                    display: absolute; position: absolute; text-align: left; padding: 30px;">
-        <tr colspan = "2"><td>Game status</td></tr>
-        <tr class="spacer" style="height: 50px;"></tr>
-        <tr>
-            <td><img src='img/lives.png'></td>
-            <td></td>
-        </tr>
-        <tr class="spacer" style="height: 50px;"></tr>
-        <tr>
-            <td>Score</td>
-            <td id='totalScore'></td>
-        <tr>
-        <tr class="spacer" style="height: 50px;"></tr>
-        <tr>
-            <td>Level</td>
-            <td id ='lvl'></td>
-        <tr>
-        <tr class="spacer" style="height: 50px;"></tr>
-        <tr>
-            <td>Medal</td>
-            <td id='medal'><img src=''></td>
-        <tr>
-    </table> `;
-}
