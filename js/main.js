@@ -110,15 +110,15 @@ function gameLoop(timeStamp) {
         //choose difficulty 
         if(difficulty==1)//if choose easy difficulty=1
         {
-            level=10;
+            level=20;
         }
         else if(difficulty==2)//if choose medium difficulty=2
         {
-            level=15;
+            level=10;
         }
         else if(difficulty==3)//if choose hard difficulty=3
         {
-            level=20;
+            level=5;
         }
 
         if (fireSpeed == level) {
