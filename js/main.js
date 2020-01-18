@@ -49,11 +49,23 @@ var enemies = {
     horEnemiesMargin: 20
 }
 
+if(difficulty==1)//if choose easy difficulty=1
+{
+    level=20;
+}
+else if(difficulty==2)//if choose medium difficulty=2
+{
+    level=10;
+}
+else if(difficulty==3)//if choose hard difficulty=3
+{
+    level=5;
+}
+
 var $updateMedal = document.querySelector('#medal');
 var $updateScore = document.querySelector('#totalScore');
 var $updateLevel = document.querySelector('#lvl');
 var $updatelives = document.querySelector('#lives');
-
 
 /***************audio voice deintions******/
 var heroBulletSound = document.getElementById("myAudio");
@@ -104,24 +116,13 @@ function init() {
 // game loop
 function gameLoop(timeStamp) {
     //get how many milliseconds have passed since the last interval
+    console.log("r343243");
+    
     if (gameON) {
         var deltaT = timeStamp - lastTime;
         moveEnemies();
-        //choose difficulty 
-        if(difficulty==1)//if choose easy difficulty=1
-        {
-            level=20;
-        }
-        else if(difficulty==2)//if choose medium difficulty=2
-        {
-            level=10;
-        }
-        else if(difficulty==3)//if choose hard difficulty=3
-        {
-            level=5;
-        }
-
-        if (fireSpeed == level) {
+        //choose difficulty
+        if (fireSpeed == level) {            
             enemyFire();
             fireSpeed = 0;
         }
