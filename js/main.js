@@ -18,6 +18,7 @@ var heroBullets = [];
 var enemyBullets = [];
 
 var gameOver = false;
+
 var count = 0;
 var fireSpeed = 0;
 var score;
@@ -28,6 +29,7 @@ var steps;
 var gameON = true;
 var enemyImageSrc = "img/enemy.png";
 var right = true;
+var medalsImgSrcArray  = ["img/0entry.png", "img/1st.png", "img/2nd.png", "img/3rd.png"];
 
 var progress = {
     lvl: 1,
@@ -45,6 +47,12 @@ var enemies = {
     verEnemiesMargin: 10,
     horEnemiesMargin: 20
 }
+
+var $updateMedal = document.querySelector('#medal');
+var $updateScore = document.querySelector('#totalScore');
+var $updateLevel = document.querySelector('#lvl');
+var $updatelives = document.querySelector('#lives');
+
 
 /***************audio voice deintions******/
 var heroBulletSound = document.getElementById("myAudio");

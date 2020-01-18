@@ -144,10 +144,24 @@ function collisoinDetection() {
                         enemyArray[j].lives -= 1
                     }
                 }
+                
+                $updateScore.innerHTML = totalScore;
+     
+                if(totalScore>=2){
+                    console.log('medal');
+                    $updateMedal.src = medalsImgSrcArray[3];
+                }
+                else if(totalScore>=100){
+                    $updateMedal.src = medalsImgSrcArray[2];
+                }
+                else if(totalScore>=300){
+                    $updateMedal.src = medalsImgSrcArray[1];                
+                }
             }
         }
     }
 }
+
 //function to specify game levels
 function nextStage() {
     //stage finished
@@ -157,6 +171,7 @@ function nextStage() {
         progress.lvl++;
         progress.stage = 1;
         killSound();//kill him comic sound 
+        $updateLevel.innerHTML = lvl;
     }
     enemyBullets.splice(0, enemyBullets.length)
     heroBullets.splice(0, heroBullets.length)
@@ -196,6 +211,7 @@ function killHero(bulletIndex) {
             clearInterval(killedTimeOut);
         }, 200)
     }
+    $updatelives.innerHTML = lives;
 }
 //function to fire after player press
 function enemyFire() {
@@ -209,4 +225,3 @@ function enemyFire() {
         enemyBullets.push(new Bullet("img/egg.png", x + (width / 2), y + height));
     }
 }
-

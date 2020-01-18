@@ -7,15 +7,50 @@
     <link rel="stylesheet" href="css/game.css">
 </head>
 
-<body>
-    <canvas id="myCanvas"></canvas>
-    <div class="progress"></div> 
+<body class="responsive">
+    <canvas id="myCanvas" class="responsive"></canvas>
+    <!--partial -- Game Status Menu -->
+    <div class="progress"></div>
+
+    <!--partial --Menu buttons -->
     <div class="menu-btns">
         <button class="game-btn" id="pauseBtn">Pause</button>
         <button class="game-btn" id="rsetatBtn" onclick="window.location.reload()">Restart</button>
         <button class="game-btn" id="homeBtn" style="top: 50%;">Home</button>
         <button class="game-btn" id="exitBtn" style="top: 60%">Exit</button>
     </div>
+
+    <!--partial -- Game Status Menu -->
+    <div class="gameStatusMenu">
+        <table id="game status" style="color: aqua; font-size: 20px; height: 20px; width: 20px; 
+                            display: absolute; position: absolute; text-align: left; padding: 30px;">
+            <tr colspan="2">
+                <td>Game status</td>
+            </tr>
+            <tr class="spacer" style="height: 50px;"></tr>
+            <tr>
+                <td><img src='img/lives.png'></td>
+                <td id='lives'>5</td>
+            </tr>
+            <tr class="spacer" style="height: 50px;"></tr>
+            <tr>
+                <td>Score</td>
+                <td id='totalScore'>0</td>
+            <tr>
+            <tr class="spacer" style="height: 50px;"></tr>
+            <tr>
+                <td>Level</td>
+                <td id='lvl'>1</td>
+            <tr>
+            <tr class="spacer" style="height: 50px;"></tr>
+            <tr>
+                <td>Medal</td>
+                <td><img  id='medal' src='img/0entry.png'></td>
+            <tr>
+        </table> ;
+    </div>
+
+    <!--partial -- audio library -->
     <audio id="myAudio">
         <source id="bullet_sound" src="sounds/Pew_Pew.mp3" type="audio/mp3">
     </audio>
@@ -38,7 +73,7 @@
     <audio id="byebye">
         <source src="sounds/byebye_clip.mp3" type="audio/mp3">
     </audio>
-    
+
     <script src="js/classes.js"></script>
     <script src="js/global_functions.js"></script>
     <script src="js/main.js"></script>
