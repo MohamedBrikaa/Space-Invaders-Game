@@ -43,8 +43,8 @@ var enemies = {
     enemyWidth: 40,
     enemyHeight: 30,
     enemylivesNum: 0,
-    enemyNum: 10,
-    numberOfLines: 1,
+    enemyNum: 20,
+    numberOfLines: 2,
     verEnemiesMargin: 10,
     horEnemiesMargin: 20
 }
@@ -122,12 +122,8 @@ function gameLoop(timeStamp) {
         }
 
         if (fireSpeed == level) {
-            console.log(level);
-            console.log(fireSpeed);
             enemyFire();
             fireSpeed = 0;
-            console.log(level);
-            console.log(fireSpeed);
         }
         else {
             fireSpeed++;

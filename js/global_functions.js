@@ -140,7 +140,7 @@ function collisoinDetection() {
                             enemyArray[KilledEnemy].clear();
                             enemyArray.splice(KilledEnemy, 1);
                             clearInterval(enemy_timeOut);
-                        }, 30)
+                        }, 10)
                         totalScore++;
                         score++;
                     } else {
@@ -151,16 +151,6 @@ function collisoinDetection() {
         }
     }
     $updateScore.innerHTML = totalScore;
-    if(totalScore>=2 && totalScore<5){
-        console.log('medal');
-        $updateMedal.src = medalsImgSrcArray[3];
-    }
-    else if(totalScore>=5 && totalScore<10){
-        $updateMedal.src = medalsImgSrcArray[2];
-    }
-    else if(totalScore>=10){
-        $updateMedal.src = medalsImgSrcArray[1];
-    }
 }
 
 //function to specify game levels
@@ -173,6 +163,7 @@ function nextStage() {
         progress.stage = 1;
         killSound();//kill him comic sound 
     }
+    $updateMedal.src = medalsImgSrcArray[progress.lvl - 1]
     enemyBullets.splice(0, enemyBullets.length)
     heroBullets.splice(0, heroBullets.length)
     context.clearRect(0, 0, canvas_Width, canvas_height)
@@ -219,11 +210,12 @@ function killHero(bulletIndex) {
 function enemyFire() {
     if (enemyArray.length) {
         var indexOfFiredEnemy = Math.floor((Math.random() * enemyArray.length) + 0);
-        var x = enemyArray[indexOfFiredEnemy].x
-        var width = enemyArray[indexOfFiredEnemy].width
-        var y = enemyArray[indexOfFiredEnemy].y
-        var height = enemyArray[indexOfFiredEnemy].height
-
-        enemyBullets.push(new Bullet("img/egg.png", x + (width / 2), y + height));
+        if (enemyArray[indexOfFiredEnemy].img.src != "img/fried-chicken.png") {
+            var x = enemyArray[indexOfFiredEnemy].x
+            var width = enemyArray[indexOfFiredEnemy].width
+            var y = enemyArray[indexOfFiredEnemy].y
+            var height = enemyArray[indexOfFiredEnemy].height
+            enemyBullets.push(new Bullet("img/egg.png", x + (width / 2), y + height));
+        }
     }
 }
