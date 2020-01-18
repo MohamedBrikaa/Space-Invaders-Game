@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>choose hero</title>
     <style type="text/css">
@@ -13,9 +12,7 @@
             height: 150;
             margin: auto;
             margin-left: 55%;
-
         }
-
         #div2 {
             position: absolute;
             top: 0;
@@ -26,29 +23,23 @@
             height: 150;
             margin: auto;
             margin-left: 20%;
-
         }
-
         body {
             background-repeat: no-repeat;
             background-size: cover;
         }
-
         img {
 
             overflow-inline: initial;
         }
-
         img:hover {
             cursor: pointer;
         }
-
         .myheader {
             font-family: "Comic Sans MS", cursive, sans-serif;
             color: lemonchiffon;
             font-size: 40;
         }
-
         #header {
             position: absolute;
             margin: auto;
@@ -75,7 +66,6 @@
     <script>
         function image(img) {
             var value = img.src;
-            // Store
             localStorage.setItem("src", value);
             window.localStorage.setItem("difficulty",window.localStorage.difficulty);
             setTimeout(function () {

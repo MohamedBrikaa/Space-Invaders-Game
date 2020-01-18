@@ -1,6 +1,7 @@
 body{
     text-align: center;
     background-color: black;
+    overflow: hidden;
 }
 
 .progress {
@@ -94,7 +95,7 @@ img{
     width: 20px; 
     position: absolute; 
     text-align: left; 
-    padding: 30px;
+    padding: 10px;
     top: 15%;
     margin-left: 1%;
     border-radius: 25px;
