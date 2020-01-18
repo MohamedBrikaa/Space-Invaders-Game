@@ -1,4 +1,23 @@
 /*****************Used Classes*****************/
+class shape{
+    constructor(imgSrc, x, y, width, height) {
+        this.img = new Image();
+        this.img.src = imgSrc;
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+    }
+    draw(){
+        console.log(this.width);
+        
+        context.drawImage(this.img, this.x, this.y, this.width, this.height );
+    }
+    clear(){
+        context.clearRect(this.x, this.y,this.width,this.height)
+    }
+
+}
 //class hero 
 class player {
     constructor(heroImgSrc, game_Width, game_height) {
@@ -39,7 +58,7 @@ class player {
     stop() { this.speed = 0; }
     //fire 
     fire(){
-        heroBullets.push(new Bullet("img/laser.png",this.position.x+(this.width/2)-5, this.position.y-8 ))
+        heroBullets.push(new Bullet("img/laser.png",this.position.x+(this.width/2)-5, this.position.y-8 ,bulletWidth,bulletHeight))
     }
 }
 
@@ -87,18 +106,10 @@ class inputHandler {
 }
 
 //class bullet
-class Bullet {
-    constructor( imgSrc,x, y){
-        this.image = new Image();
-        this.image.src = imgSrc;
-        this.x=x;
-        this.y=y;
+class Bullet extends shape{
+    constructor( imgSrc,x, y,bulletWidth,bulletHeight){        
+        super(imgSrc, x, y, bulletWidth, bulletHeight);
         this.speed = {x:0, y:2};
-        this.width = bulletWidth;
-        this.height = bulletHeight;
-    }
-    draw(){
-        context.drawImage(this.image, this.x, this.y, this.width, this.height );
     }
     update(){
         this.position.x += this.speed.x;
@@ -110,23 +121,12 @@ class Bullet {
     moveDown(speed){
         this.y += speed;
     }
-    clear(){
-        context.clearRect(this.x, this.y,this.width,this.height)
-    }
 }
 //Enemy class
-class enemy {
+class enemy extends shape{
     constructor(imgSrc, x, y, width, height,lives) {
-        this.img = new Image();
-        this.img.src = imgSrc;
-        this.x = x
-        this.y = y
+        super(imgSrc, x, y, width, height);
         this.lives=lives
-        this.width = width
-        this.height = height
-    }
-    draw() {
-        context.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
     moveRight(speed){
         this.x += speed;
@@ -134,7 +134,5 @@ class enemy {
     moveLeft(speed){
         this.x -=speed;
     }
-    clear(){
-        context.clearRect(this.x, this.y,this.width,this.height)
-    }
+
 }

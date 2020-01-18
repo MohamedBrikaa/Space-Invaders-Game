@@ -215,7 +215,7 @@ function enemyFire() {
             var width = enemyArray[indexOfFiredEnemy].width
             var y = enemyArray[indexOfFiredEnemy].y
             var height = enemyArray[indexOfFiredEnemy].height
-            enemyBullets.push(new Bullet("img/egg.png", x + (width / 2), y + height));
+            enemyBullets.push(new Bullet("img/egg.png", x + (width / 2), y + height,bulletWidth,bulletHeight));
         }
     }
 }
