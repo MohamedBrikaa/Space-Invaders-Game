@@ -18,6 +18,7 @@ var heroBullets = [];
 var enemyBullets = [];
 
 var gameOver = false;
+
 var count = 0;
 var fireSpeed = 0;
 var score;
@@ -28,6 +29,7 @@ var steps;
 var gameON = true;
 var enemyImageSrc = "img/enemy.png";
 var right = true;
+var medalsImgSrcArray  = ["", "img/1st.png", "img/2nd.png", , "img/3rd.png"];
 
 var progress = {
     lvl: 1,
@@ -90,6 +92,7 @@ function init() {
         document.getElementsByClassName("progress")[0].style.background = "#4caf5063";
         document.getElementsByClassName("progress")[0].style.display = "block";
     }
+    updateGameStatus();
 }
 
 // game loop
@@ -113,6 +116,7 @@ function gameLoop(timeStamp) {
         if (!enemyArray.length) {
             nextStage();
         }
+        updateGameStatus();
         // Request to do this again
         requestAnimationFrame(gameLoop);
     }
