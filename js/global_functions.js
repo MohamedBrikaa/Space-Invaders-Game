@@ -144,6 +144,16 @@ function collisoinDetection() {
                         enemyArray[j].lives -= 1
                     }
                 }
+                if(totalScore>=20){
+                    medalsImgSrcArray[3];
+                }
+                else if(totalScore>=100){
+                    medalsImgSrcArray[2];
+                }
+                else if(totalScore>=300){
+                    medalsImgSrcArray[1];
+                }
+                updateGameStatus();
             }
         }
     }
@@ -210,3 +220,34 @@ function enemyFire() {
     }
 }
 
+var $gameStatusMenu = document.querySelector(".gameStatusMenu");
+
+function updateGameStatus(){
+    $gameStatusMenu.innerHTML = `<table
+                                    style="color: aqua; font-size: 20px; height: 20px; width: 20px; 
+                                    display: absolute; position: absolute; text-align: left; padding: 30px;">
+        <tr colspan = "2"><td>Game status</td></tr>
+        <tr class="spacer" style="height: 50px;"></tr>
+        <tr>
+            <td><img src='img/lives.png'></td>
+            <td>{lives}</td>
+        </tr>
+        <tr class="spacer" style="height: 50px;"></tr>
+        <tr>
+            <td>Score</td>
+            <td>{totalScore}</td>
+        <tr>
+        <tr class="spacer" style="height: 50px;"></tr>
+        <tr>
+            <td>Level</td>
+            <td>{lvl}</td>
+        <tr>
+        <tr class="spacer" style="height: 50px;"></tr>
+        <tr style =" padding: 10px;">
+            <td>Medal</td>
+            <td><img src='medalsImgSrcArray[i]'>medalsImgSrcArray</td>
+        <tr>
+    </table> `;
+}
+
+updateGameStatus();
