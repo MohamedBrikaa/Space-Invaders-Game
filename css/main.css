@@ -19,25 +19,24 @@
             border-radius: 25px;
             border: 2px solid white;
         }
-        #play:hover {
+        #play:hover ,#easy:hover {
             background: #db0505;
             color: rgb(101, 143, 191);
             -webkit-transform: rotate(-1deg);
             transform: rotate(-2deg);
         }
-        #instructions:hover {
+        #instructions:hover,#medium:hover {
             background: #db0505;
             color: rgb(101, 143, 191);
             -webkit-transform: rotate(-2deg);
             transform: rotate(-2deg);
         }
-        #help:hover {
+        #help:hover ,#hard:hover {
             background: #db0505;
             color: rgb(101, 143, 191);
             -webkit-transform: rotate(-2deg);
             transform: rotate(-2deg);
         }
-
         #about:hover {
             background: #db0505;
             color: rgb(101, 143, 191);
