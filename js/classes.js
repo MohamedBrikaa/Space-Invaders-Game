@@ -39,7 +39,7 @@ class player {
     stop() { this.speed = 0; }
     //fire 
     fire(){
-        heroBullets.push(new Bullet("img/laser.png",this.position.x+(this.width/2)-5, this.position.y-35 ))
+        heroBullets.push(new Bullet("img/laser.png",this.position.x+(this.width/2)-5, this.position.y-8 ))
     }
 }
 
