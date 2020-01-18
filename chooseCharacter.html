@@ -77,6 +77,7 @@
             var value = img.src;
             // Store
             localStorage.setItem("src", value);
+            window.localStorage.setItem("difficulty",window.localStorage.difficulty);
             setTimeout(function () {
                 document.getElementById('myimage').style.display = 'block';
             }, 5000);

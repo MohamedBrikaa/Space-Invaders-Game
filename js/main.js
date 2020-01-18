@@ -12,13 +12,14 @@ const playerHeight = 75;
 var player_MaxSpeed = 10;
 var lastTime = 0;
 var heroImageSrc = localStorage.getItem("src"); //get src for choosen hero
+var difficulty=localStorage.getItem("difficulty"); //get difficulty for choosen level
 var hero;
 var spacePressed = false;
 var heroBullets = [];
 var enemyBullets = [];
 
 var gameOver = false;
-
+var difficulty;
 var count = 0;
 var fireSpeed = 0;
 var score;
@@ -106,7 +107,22 @@ function gameLoop(timeStamp) {
     if (gameON) {
         var deltaT = timeStamp - lastTime;
         moveEnemies();
-        if (fireSpeed == 20) {
+        //choose difficulty 
+        if(difficulty==1)//if choose easy difficulty=1
+        {
+            level=10;
+        }
+        else if(difficulty==2)//if choose medium difficulty=2
+        {
+            level=15;
+        }
+        else if(difficulty==3)//if choose hard difficulty=3
+        {
+            level=20;
+        }
+
+        if (fireSpeed == level) {
+            console.log(difficulty);
             enemyFire();
             fireSpeed = 0;
         }

@@ -147,21 +147,19 @@ function collisoinDetection() {
                         enemyArray[j].lives -= 1
                     }
                 }
-                
-                $updateScore.innerHTML = totalScore;
-     
-                if(totalScore>=2){
-                    console.log('medal');
-                    $updateMedal.src = medalsImgSrcArray[3];
-                }
-                else if(totalScore>=100){
-                    $updateMedal.src = medalsImgSrcArray[2];
-                }
-                else if(totalScore>=300){
-                    $updateMedal.src = medalsImgSrcArray[1];                
-                }
             }
         }
+    }
+    $updateScore.innerHTML = totalScore;
+    if(totalScore>=2 && totalScore<5){
+        console.log('medal');
+        $updateMedal.src = medalsImgSrcArray[3];
+    }
+    else if(totalScore>=5 && totalScore<10){
+        $updateMedal.src = medalsImgSrcArray[2];
+    }
+    else if(totalScore>=10){
+        $updateMedal.src = medalsImgSrcArray[1];
     }
 }
 
@@ -174,7 +172,6 @@ function nextStage() {
         progress.lvl++;
         progress.stage = 1;
         killSound();//kill him comic sound 
-        $updateLevel.innerHTML = lvl;
     }
     enemyBullets.splice(0, enemyBullets.length)
     heroBullets.splice(0, heroBullets.length)
@@ -182,6 +179,7 @@ function nextStage() {
     document.getElementsByClassName("progress")[0].innerHTML = `<h1>Level: ${progress.lvl}</h1><h1>Stage: ${progress.stage}</h1>`
     document.getElementsByClassName("progress")[0].style.background = "#4caf5063";
     document.getElementsByClassName("progress")[0].style.display = "block";
+    $updateLevel.innerHTML = progress.lvl;
     var lvlTimeOut = setTimeout(function () {
         document.getElementsByClassName("progress")[0].style.display = "none";
         clearInterval(lvlTimeOut);
