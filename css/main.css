@@ -51,6 +51,14 @@
             background-repeat: repeat;
             animation: scroll-background linear 5s infinite;
         }
+        .bodyLevel
+        {
+         background-image: url('../img/background_Level2.jpg');
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed; 
+         height: 100%;
+        }
 
         @keyframes scroll-background {
             from {
@@ -84,4 +92,36 @@
         }
         .button5 {
             margin-bottom: 4px;
+        }
+        .level
+        {
+         width: 25%;
+         height:300px;
+         position: absolute;
+         margin: auto;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         border-radius: 3px;
+        }
+        h1
+        {
+         
+         /*text-shadow: 5px 3px rgb(0, 255, 42);*/
+         top: 20px;
+         text-align: center;
+         color:#FFA500  ;
+         text-decoration-style: wavy;
+         padding: 20px;
+ 
+        }
+        .container
+        {
+         
+             width: 25%;
+             height:300px;
+             margin: 0 auto;
+             background-color:#FFA500 ;
+           
         }
