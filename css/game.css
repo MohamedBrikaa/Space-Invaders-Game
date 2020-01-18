@@ -83,3 +83,7 @@ img{
     top: .2em;
     display: block; 
 } 
+.responsive {
+    max-width: 100%;
+    height: auto;
+  }
