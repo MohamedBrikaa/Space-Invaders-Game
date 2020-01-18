@@ -107,7 +107,7 @@ body{
 .css-typing p:nth-child(1) {
   font-size: 40px;
   font-weight: bold; 
-  width: 13%;
+  width: 0.008em;
   animation: type 1.5s steps(40, end), blink .7s step-end infinite alternate;;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
