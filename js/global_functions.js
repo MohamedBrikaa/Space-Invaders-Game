@@ -20,6 +20,9 @@ function killSound() {
 function heroFail() {
     hero_died.play();
 }
+function stopFailvoice() {
+    hero_died.pause();
+}
 function GameOverSound() {
     game_overSound.play();
 }
@@ -200,6 +203,7 @@ function killHero(bulletIndex) {
     if (lives === 0) {
         byeBye();//byebye sound
         canvas.remove();
+        stopFailvoice();
         GameOverSound();//Game over sound
         progressDiv.innerHTML = `<h1>Game Over </h1><h1>Total Score: ${totalScore}</h1>`
     } else {
